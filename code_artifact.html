@@ -1,0 +1,1506 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>우리 반 감성 글쓰기 모음집 ✍️</title>
+  <!-- 감성적인 손글씨 및 본문 명조/고딕 구글 폰트 -->
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js"></script>
+  <style>
+    :root { 
+      --ink: #4a4036; 
+      --coral: #d98276; 
+      --sage: #7d967b; 
+      --paper: #fffdf9; 
+      --gold: #eab308;
+    }
+    * { box-sizing: border-box; }
+    body { 
+      margin: 0; 
+      width: 100%; 
+      font-family: 'Gowun Dodum', sans-serif; 
+      color: var(--ink); 
+      background-color: #f7f2e7;
+    }
+    .app-shell { 
+      width: 100%; 
+      min-height: 100vh; 
+      background: 
+        radial-gradient(circle at 88% 10%, #f6dfd3 0%, transparent 36%),
+        radial-gradient(circle at 10% 85%, #e2ebd8 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, #fbf7ef 0%, #f5efe2 100%);
+    }
+    .hand { font-family: 'Gaegu', cursive; }
+    .serif { font-family: 'Gowun Batang', serif; }
+    
+    /* 감성 원고지/편지지 질감 카드 */
+    .paper { 
+      background: var(--paper); 
+      border: 1px solid #e8decb; 
+      box-shadow: 0 14px 38px rgba(108, 82, 48, 0.08); 
+    }
+    .lined-textarea {
+      background-image: linear-gradient(transparent 95%, #efe6d5 95%);
+      background-size: 100% 2.1rem;
+      line-height: 2.1rem;
+      padding-top: 0.25rem;
+    }
+
+    .action { 
+      background: var(--coral); 
+      color: white; 
+      border-radius: 999px; 
+      padding: 0.75rem 1.5rem; 
+      font-weight: 700; 
+      transition: transform 0.2s, filter 0.2s, box-shadow 0.2s; 
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      box-shadow: 0 6px 16px rgba(217, 130, 118, 0.25);
+    }
+    .action:hover:not(:disabled) { transform: translateY(-2px); filter: brightness(0.97); }
+    .action:disabled { opacity: 0.55; cursor: not-allowed; }
+    
+    .soft { 
+      background: #ecf0e6; 
+      color: #46614a; 
+      border-radius: 999px; 
+      padding: 0.65rem 1.2rem; 
+      font-weight: 600;
+      transition: background-color 0.2s, transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+    .soft:hover { background: #dfe7d6; transform: translateY(-1px); }
+
+    button:focus-visible, textarea:focus-visible, select:focus-visible, input:focus-visible { 
+      outline: 3px solid #b7685b; 
+      outline-offset: 2px; 
+    }
+
+    /* 하트 & 별 스티커 애니메이션 */
+    .heart-pop { animation: heartPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+    @keyframes heartPop {
+      0% { transform: scale(0.7); }
+      50% { transform: scale(1.35); }
+      100% { transform: scale(1); }
+    }
+
+    .star-twinkle { animation: starTwinkle 1.6s ease-in-out infinite alternate; }
+    @keyframes starTwinkle { 
+      from { transform: scale(1) rotate(-4deg); filter: drop-shadow(0 0 2px rgba(234, 179, 8, 0.4)); } 
+      to { transform: scale(1.18) rotate(6deg); filter: drop-shadow(0 0 12px rgba(234, 179, 8, 0.85)); } 
+    }
+
+    /* 새 주제 도착 알림 배너 애니메이션 */
+    .topic-alert-enter { animation: slideDownBounce 0.55s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    @keyframes slideDownBounce {
+      from { opacity: 0; transform: translateY(-18px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .card-enter { animation: appear 0.45s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    @keyframes appear { 
+      from { opacity: 0; transform: translateY(14px); } 
+      to { opacity: 1; transform: translateY(0); } 
+    }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <div class="mx-auto w-full max-w-5xl px-4 py-8 md:px-8 md:py-12">
+      
+      <!-- 상단 감성 헤더 -->
+      <header class="mb-8 flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <p class="mb-1 text-xs tracking-[0.25em]" style="color: #9b8172;">OUR CLASS WRITING ANTHOLOGY</p>
+          <h1 class="hand text-3xl font-bold leading-tight md:text-4xl" style="color: #4a4036;">우리 반 감성 글쓰기 모음집 ✍️</h1>
+          <p class="mt-1.5 text-sm md:text-base" style="color: #7d6f62;">마음속 이야기를 한 줄 한 줄 적어 우리 반만의 따뜻한 책장을 채워요.</p>
+        </div>
+        <button id="home-button" type="button" class="soft text-sm md:text-base" hidden>
+          <i data-lucide="arrow-left" class="h-4 w-4"></i> 처음으로
+        </button>
+      </header>
+
+      <main>
+        <!-- 알림 토스트 배너 -->
+        <div id="notice" role="status" aria-live="polite" class="card-enter mb-6 flex items-center justify-between rounded-2xl border border-[#e8decb] bg-white px-5 py-3.5 text-sm shadow-sm" hidden>
+          <span id="notice-text" class="font-medium"></span>
+          <button type="button" onclick="hideNotice()" class="ml-4 text-xs text-stone-400 hover:text-stone-600">닫기</button>
+        </div>
+
+        <!-- 1. 초기 진입 모드 선택 화면 -->
+        <section id="welcome" class="grid gap-6 md:grid-cols-2" aria-label="접속 모드 선택">
+          <!-- 학생 카드 -->
+          <article class="paper card-enter flex flex-col justify-between rounded-[32px] p-8 md:p-10">
+            <div>
+              <div class="mb-5 flex items-center gap-3">
+                <span class="text-5xl" aria-hidden="true">📖</span>
+                <span class="rounded-full bg-[#fdf3f1] px-3 py-1 text-xs font-semibold text-[#d98276]">작가 입장</span>
+              </div>
+              <h2 class="hand text-2xl font-bold md:text-3xl" style="color: #4a4036;">학생으로 들어가기</h2>
+              <p class="my-4 text-sm leading-relaxed md:text-base" style="color: #7d6f62;">
+                선생님이 보내주신 이번 주 글쓰기 주제를 확인하고, 내 이름 책갈피를 열어 멋진 글을 써 보아요.
+              </p>
+            </div>
+            <div>
+              <button id="student-mode-btn" type="button" class="action text-sm md:text-base">
+                내 책갈피 찾기 <i data-lucide="arrow-right" class="h-4 w-4"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- 선생님 카드 -->
+          <article class="paper card-enter flex flex-col justify-between rounded-[32px] p-8 md:p-10" style="animation-delay: 0.08s;">
+            <div>
+              <div class="mb-5 flex items-center gap-3">
+                <span class="text-5xl" aria-hidden="true">🖋️</span>
+                <span class="rounded-full bg-[#ecf0e6] px-3 py-1 text-xs font-semibold text-[#46614a]">편집장 입장</span>
+              </div>
+              <h2 class="hand text-2xl font-bold md:text-3xl" style="color: #4a4036;">선생님으로 들어가기</h2>
+              <p class="my-4 text-sm leading-relaxed md:text-base" style="color: #7d6f62;">
+                이번 주 글쓰기 주제를 정해 학생들에게 알리고, 우리 반 꼬마 작가들의 글을 읽어보며 답장을 남겨 주세요.
+              </p>
+            </div>
+            <div>
+              <button id="teacher-mode-btn" type="button" class="soft text-sm md:text-base" style="background-color: #7d967b; color: white;">
+                글쓰기 교실 열기 <i data-lucide="sparkles" class="h-4 w-4"></i>
+              </button>
+            </div>
+          </article>
+        </section>
+
+        <!-- 2. 학생 이름 선택 화면 -->
+        <section id="student-select-view" class="paper card-enter rounded-[32px] p-6 md:p-10" hidden>
+          <!-- 현재 주간 주제 미리보기 배너 -->
+          <div class="mb-7 rounded-3xl border border-[#eadcc8] bg-gradient-to-r from-[#fcf7ee] to-[#fdf2ee] p-5 md:p-6">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-xs font-bold text-[#d98276] shadow-xs">
+                📮 이번 주 글쓰기 주제
+              </span>
+              <span id="select-view-topic-date" class="text-xs text-[#9b8172]"></span>
+            </div>
+            <h3 id="select-view-topic-title" class="serif mt-2.5 text-lg font-bold text-[#4a4036] md:text-xl"></h3>
+            <p id="select-view-topic-desc" class="mt-1 text-xs leading-relaxed text-[#7d6f62] md:text-sm"></p>
+          </div>
+
+          <div class="mb-5 flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h2 class="hand text-2xl font-bold md:text-3xl">누구의 글쓰기 책갈피일까요? 🐣</h2>
+              <p class="mt-1 text-sm text-[#7d6f62]">자신의 이름 카드를 눌러 글을 쓰거나 수정할 수 있어요.</p>
+            </div>
+          </div>
+
+          <div id="student-card-grid" class="grid grid-cols-2 gap-3.5 sm:grid-cols-3 md:grid-cols-4">
+            <!-- JS로 학생 카드 렌더링 -->
+          </div>
+
+          <!-- 등록된 학생이 없을 때 안내 -->
+          <div id="empty-student-list-msg" class="rounded-3xl border border-dashed border-[#e2d4c0] bg-[#fcf8f2] p-10 text-center" hidden>
+            <p class="mb-2 text-3xl">🌱</p>
+            <p class="font-bold text-[#4a4036]">아직 등록된 학생 명단이 없어요.</p>
+            <p class="mt-1 text-sm text-[#7d6f62]">선생님께서 먼저 학생 이름을 등록해 주시면 이곳에 내 이름 카드가 나타납니다!</p>
+          </div>
+        </section>
+
+        <!-- 2-1. 교사 입장 비밀번호 인증 화면 -->
+        <section id="teacher-auth-view" class="paper card-enter mx-auto max-w-md rounded-[32px] p-8 text-center" hidden>
+          <div class="mb-4 text-4xl">🔐</div>
+          <h2 class="hand text-2xl font-bold text-[#4a4036]">선생님 입장 확인</h2>
+          <p class="mt-1.5 text-sm text-[#7d6f62]">글쓰기 교실을 열기 위해 입장 번호를 입력해 주세요.</p>
+          <form id="teacher-auth-form" class="mt-6 space-y-4">
+            <input id="teacher-password-input" type="password" placeholder="입장 번호 입력" class="w-full rounded-full border border-[#e5d8c5] bg-white px-5 py-3 text-center text-base focus:border-[#7d967b]" required>
+            <div class="flex justify-center gap-2">
+              <button type="button" onclick="setMode('welcome')" class="soft text-sm">취소</button>
+              <button type="submit" class="action text-sm" style="background-color: #7d967b;">입장하기</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- 2-2. 학생 비밀번호 설정 및 로그인 화면 -->
+        <section id="student-auth-view" class="paper card-enter mx-auto max-w-md rounded-[32px] p-8 text-center" hidden>
+          <div id="auth-student-avatar" class="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#f8e4d9] text-4xl"></div>
+          <h2 id="auth-student-title" class="hand text-2xl font-bold text-[#4a4036]"></h2>
+          <p id="auth-student-desc" class="mt-1.5 text-sm leading-relaxed text-[#7d6f62]"></p>
+          
+          <!-- 캐릭터(동물/식물) 선택 영역 -->
+          <div id="auth-avatar-picker-box" class="mt-5 rounded-2xl border border-[#efe4d6] bg-[#fcf8f2] p-4 text-left" hidden>
+            <p class="mb-2 text-center text-xs font-bold text-[#7d6f62]">나를 닮은 동물이나 식물 캐릭터를 골라 보세요 🌱🐾</p>
+            <div id="auth-avatar-grid" class="grid grid-cols-5 gap-2">
+              <!-- JS로 캐릭터 버튼 렌더링 -->
+            </div>
+          </div>
+
+          <form id="student-auth-form" class="mt-5 space-y-4">
+            <input id="student-password-input" type="password" maxlength="20" placeholder="비밀번호 입력" class="w-full rounded-full border border-[#e5d8c5] bg-white px-5 py-3 text-center text-base focus:border-[#d98276]" required>
+            <div class="flex justify-center gap-2">
+              <button type="button" onclick="setMode('student-select')" class="soft text-sm">명단으로</button>
+              <button id="student-auth-submit-btn" type="submit" class="action text-sm">확인</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- 3. 학생 글쓰기 작성/제출 대시보드 -->
+        <section id="student-journal-view" class="card-enter space-y-6" hidden>
+          
+          <!-- 🔔 선생님이 새 주제를 업데이트했을 때 뜨는 메시지 도착 알림 -->
+          <div id="new-topic-message-banner" class="topic-alert-enter rounded-[28px] border-2 border-[#e6a498] bg-gradient-to-r from-[#fff5f2] via-[#fffaf2] to-[#f4f8f1] p-5 shadow-md" hidden>
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div class="flex items-start gap-3">
+                <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#d98276] text-xl text-white shadow-sm">💌</span>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="rounded-full bg-[#d98276] px-2.5 py-0.5 text-[11px] font-bold text-white">NEW 메시지 도착</span>
+                    <span class="text-xs font-semibold text-[#9b8172]">선생님께서 새로운 글쓰기 주제를 보내셨어요!</span>
+                  </div>
+                  <p id="banner-new-topic-title" class="serif mt-1 text-base font-bold text-[#4a4036]"></p>
+                </div>
+              </div>
+              <button id="ack-new-topic-btn" type="button" class="rounded-full bg-white px-4 py-2 text-xs font-bold text-[#d98276] shadow-xs ring-1 ring-[#ead5cd] hover:bg-[#fdf3f1]">
+                확인했어요 ✨
+              </button>
+            </div>
+          </div>
+
+          <!-- 상단 작가 프로필 및 제출 상태(하트 & 별 스티커) 카드 -->
+          <div class="paper rounded-[32px] p-6 md:p-8">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+              <div class="flex items-center gap-3.5">
+                <div id="active-student-avatar" class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#f8e4d9] text-3xl shadow-inner"></div>
+                <div>
+                  <div class="flex flex-wrap items-center gap-2">
+                    <h2 id="active-student-name" class="hand text-2xl font-bold md:text-3xl"></h2>
+                    <span class="rounded-full bg-[#ecf0e6] px-3 py-0.5 text-xs font-semibold text-[#46614a]">꼬마 작가</span>
+                  </div>
+                  <p id="submission-status-msg" class="mt-1 text-sm text-[#7d6f62]"></p>
+                </div>
+              </div>
+              <button id="change-student-btn" type="button" class="soft text-xs md:text-sm">
+                <i data-lucide="users" class="h-4 w-4"></i> 다른 친구 선택
+              </button>
+            </div>
+
+            <!-- 제출 하트 & 15문장 별 스티커 보상 배너 -->
+            <div class="mt-6 grid gap-3 sm:grid-cols-2">
+              <!-- 제출 하트 카드 -->
+              <div id="heart-reward-card" class="flex items-center gap-3.5 rounded-2xl border border-[#efe4d6] bg-[#faf5ec] p-4 transition-all">
+                <div id="heart-badge-icon" class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white text-2xl shadow-xs">
+                  🤍
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-[#9b8172]">글 제출 하트</p>
+                  <p id="heart-badge-title" class="text-sm font-bold text-[#4a4036]">아직 제출 전이에요</p>
+                  <p id="heart-badge-desc" class="text-xs text-[#7d6f62]">글을 쓰고 제출하면 하트가 빨갛게 물들어요!</p>
+                </div>
+              </div>
+
+              <!-- 15문장 이상 별 스티커 카드 -->
+              <div id="star-reward-card" class="flex items-center gap-3.5 rounded-2xl border border-[#efe4d6] bg-[#faf5ec] p-4 transition-all">
+                <div id="star-badge-icon" class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white text-2xl shadow-xs">
+                  ☆
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-[#9b8172]">15문장 정성 별 스티커</p>
+                  <p id="star-badge-title" class="text-sm font-bold text-[#4a4036]">현재 0문장 작성 중</p>
+                  <p id="star-badge-desc" class="text-xs text-[#7d6f62]">15문장 이상 정성껏 쓰면 반짝이는 별 스티커가 켜져요!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 감성 원고지 글쓰기 & 제출 폼 -->
+          <div class="paper rounded-[32px] p-6 md:p-9">
+            <!-- 선생님이 설정한 이번 주 주제 안내 박스 -->
+            <div class="mb-6 rounded-3xl border border-[#e7d8c3] bg-[#fcf8f0] p-5 md:p-6">
+              <div class="mb-2 flex flex-wrap items-center justify-between gap-2">
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-[#d98276]/15 px-3 py-1 text-xs font-bold text-[#c2675b]">
+                  ✨ 이번 주 글쓰기 주제
+                </span>
+                <span id="journal-topic-updated-at" class="text-xs text-[#9b8172]"></span>
+              </div>
+              <h3 id="journal-topic-title" class="serif text-xl font-bold leading-snug text-[#4a4036] md:text-2xl"></h3>
+              <p id="journal-topic-guide" class="mt-2 text-sm leading-relaxed text-[#6e6053]"></p>
+            </div>
+
+            <!-- 기분 스티커 선택 -->
+            <div class="mb-5">
+              <label class="mb-2 block text-xs font-semibold text-[#7d6f62]">오늘 글을 쓰는 내 마음 날씨</label>
+              <div id="mood-picker" class="flex flex-wrap gap-2">
+                <!-- JS로 기분 버튼 렌더링 -->
+              </div>
+            </div>
+
+            <!-- 글 제목 입력 -->
+            <div class="mb-4">
+              <label for="writing-title-input" class="mb-1.5 block text-xs font-semibold text-[#7d6f62]">내 글의 제목</label>
+              <input id="writing-title-input" type="text" maxlength="40" placeholder="글에 어울리는 예쁜 제목을 지어 주세요" class="serif w-full rounded-2xl border border-[#e5d8c5] bg-white px-4 py-3 text-base font-bold text-[#4a4036] placeholder-[#bbaea0] focus:border-[#d98276]">
+            </div>
+
+            <!-- 글 본문 입력 영역 (감성 줄노트 스타일) -->
+            <div class="mb-3">
+              <div class="mb-1.5 flex flex-wrap items-center justify-between gap-2">
+                <label for="writing-textarea" class="text-xs font-semibold text-[#7d6f62]">이야기 펼치기</label>
+                <div class="flex items-center gap-3 text-xs">
+                  <span id="live-sentence-counter" class="rounded-full bg-[#f4efe6] px-3 py-1 font-bold text-[#7d6f62]">
+                    0문장 / 15문장 목표
+                  </span>
+                  <span id="live-char-counter" class="text-[#9b8172]">0자</span>
+                </div>
+              </div>
+              <textarea id="writing-textarea" rows="9" class="serif lined-textarea w-full resize-y rounded-2xl border border-[#e5d8c5] bg-white px-5 py-3 text-base text-[#4a4036] placeholder-[#bbaea0] focus:border-[#d98276]" placeholder="주제를 떠올리며 겪었던 일이나 생각, 느낌을 자유롭게 적어 보세요. 문장 끝에는 마침표(.), 느낌표(!), 물음표(?)를 찍어 주면 문장 수가 정확히 계산돼요!"></textarea>
+            </div>
+
+            <!-- 15문장 달성 진행 바 -->
+            <div class="mb-6 rounded-2xl bg-[#f8f3ea] p-3.5">
+              <div class="mb-1.5 flex items-center justify-between text-xs">
+                <span class="font-semibold text-[#7d6f62]">⭐ 별 스티커 달성 게이지 (15문장 이상)</span>
+                <span id="star-progress-label" class="font-bold text-[#d98276]">0%</span>
+              </div>
+              <div class="h-2.5 w-full overflow-hidden rounded-full bg-white p-0.5">
+                <div id="star-progress-bar" class="h-full rounded-full bg-gradient-to-r from-[#f3c669] to-[#eab308] transition-all duration-300" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <span id="last-submitted-time" class="text-xs text-[#9b8172]"></span>
+              <div class="ml-auto flex gap-2">
+                <button id="submit-writing-btn" type="button" class="action text-sm md:text-base">
+                  <i data-lucide="send" class="h-4 w-4"></i> <span id="submit-btn-label">글 제출하기</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- 선생님 응원 답장 표시 영역 (답장이 있을 경우 표시) -->
+            <div id="student-teacher-reply-box" class="mt-7 rounded-3xl border border-[#d3e0cd] bg-[#f3f7f0] p-6" hidden>
+              <div class="mb-2 flex items-center gap-2 text-xs font-bold text-[#46614a]">
+                <span class="text-base">💌</span>
+                <span>선생님의 따뜻한 감상평 & 답장</span>
+              </div>
+              <p id="student-teacher-reply-text" class="serif text-sm leading-relaxed text-[#3a4d3d] md:text-base"></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. 선생님 대시보드 화면 -->
+        <section id="teacher-dashboard-view" class="card-enter space-y-6" hidden>
+          
+          <!-- 상단 요약 통계 & 새 학생 추가 바 -->
+          <div class="paper rounded-[32px] p-6 md:p-8">
+            <div class="flex flex-wrap items-center justify-between gap-4 border-b border-[#efe6d8] pb-6">
+              <div>
+                <h2 class="hand text-2xl font-bold md:text-3xl">우리 반 글쓰기 교실 🌿</h2>
+                <p class="mt-1 text-sm text-[#7d6f62]">주간 글쓰기 주제를 설정하고 학생들의 글을 읽어보며 따뜻한 답장을 남겨 주세요.</p>
+              </div>
+              
+              <!-- 새 학생 추가 폼 -->
+              <form id="add-student-form" class="flex w-full items-center gap-2 sm:w-auto">
+                <input id="new-student-name" type="text" maxlength="10" placeholder="새 학생 이름" class="w-full rounded-full border border-[#e5d8c5] bg-white px-4 py-2 text-sm focus:border-[#7d967b] sm:w-40" required>
+                <button type="submit" class="soft shrink-0 text-sm" style="background-color: #7d967b; color: white;">
+                  <i data-lucide="plus" class="h-4 w-4"></i> 학생 추가
+                </button>
+              </form>
+            </div>
+
+            <!-- 학급 전체 통계 요약 -->
+            <div class="mt-6 grid grid-cols-3 gap-3 text-center">
+              <div class="rounded-2xl bg-[#fcf8f2] p-3.5">
+                <p class="text-xs text-[#7d6f62]">전체 작가</p>
+                <p id="stat-total-students" class="hand mt-1 text-2xl font-bold text-[#4a4036]">0명</p>
+              </div>
+              <div class="rounded-2xl bg-[#fdf3f1] p-3.5">
+                <p class="text-xs text-[#7d6f62]">제출 완료 (❤️)</p>
+                <p id="stat-total-submitted" class="hand mt-1 text-2xl font-bold text-[#d98276]">0명</p>
+              </div>
+              <div class="rounded-2xl bg-[#fef9eb] p-3.5">
+                <p class="text-xs text-[#7d6f62]">15문장 별 달성 (⭐)</p>
+                <p id="stat-total-stars" class="hand mt-1 text-2xl font-bold text-[#ca8a04]">0명</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ✨ 교사 탭: 주간 글쓰기 주제 설정 카드 -->
+          <div class="paper rounded-[32px] border-2 border-[#e4d5be] p-6 md:p-8">
+            <div class="mb-4 flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-[#fdf3f1] px-3 py-0.5 text-xs font-bold text-[#d98276]">
+                  📮 주간 주제 설정
+                </span>
+                <h3 class="hand mt-1 text-2xl font-bold text-[#4a4036]">이번 주 글쓰기 주제 정하기</h3>
+                <p class="text-xs text-[#7d6f62]">새로운 주제를 저장하면 접속한 모든 학생 화면에 메시지 알림이 전송되고 주제가 즉시 바뀝니다.</p>
+              </div>
+              <span id="teacher-current-topic-badge" class="rounded-full bg-[#f4efe6] px-3 py-1 text-xs text-[#817366]"></span>
+            </div>
+
+            <form id="topic-setting-form" class="space-y-3.5">
+              <div>
+                <label for="teacher-topic-title-input" class="mb-1 block text-xs font-semibold text-[#7d6f62]">글쓰기 주제</label>
+                <input id="teacher-topic-title-input" type="text" maxlength="80" placeholder="예) 내가 가장 소중하게 여기는 보물 1호 이야기" class="serif w-full rounded-2xl border border-[#e5d8c5] bg-white px-4 py-3 text-base font-bold text-[#4a4036] focus:border-[#d98276]" required>
+              </div>
+              <div>
+                <label for="teacher-topic-guide-input" class="mb-1 block text-xs font-semibold text-[#7d6f62]">글쓰기 안내 및 도움말 (선택)</label>
+                <textarea id="teacher-topic-guide-input" rows="2" maxlength="250" placeholder="예) 언제 처음 만났는지, 어떤 추억이 담겨 있는지 자유롭게 떠올리며 적어 보아요." class="w-full resize-none rounded-2xl border border-[#e5d8c5] bg-white px-4 py-2.5 text-sm text-[#4a4036] focus:border-[#d98276]"></textarea>
+              </div>
+              <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+                <label class="flex cursor-pointer items-center gap-2 text-xs text-[#7d6f62]">
+                  <input id="reset-submissions-on-topic-change" type="checkbox" class="h-4 w-4 rounded accent-[#d98276]">
+                  <span>새 주제 발송 시 이전 주 제출 상태(하트/별) 초기화하기</span>
+                </label>
+                <button type="submit" class="action text-sm">
+                  <i data-lucide="bell-ring" class="h-4 w-4"></i> 새 주제 저장 및 학생들에게 알림 보내기
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- 우리 반 학생 명단 및 비밀번호 확인 카드 -->
+          <div class="paper rounded-[32px] p-6 md:p-8">
+            <div class="mb-4 flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h3 class="hand text-xl font-bold text-[#4a4036] md:text-2xl">우리 반 학생 명단 & 비밀번호 확인 🔑</h3>
+                <p class="text-xs text-[#7d6f62]">학생이 처음 입장할 때 설정한 비밀번호를 확인할 수 있어요. (비밀번호를 잊어버린 학생에게 알려주세요)</p>
+              </div>
+            </div>
+            <div id="teacher-student-roster" class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
+              <!-- JS로 학생 명단 및 비밀번호 렌더링 -->
+            </div>
+          </div>
+
+          <!-- 학생별 제출 글 모음집 & 답장 리스트 -->
+          <div>
+            <div class="mb-4 flex flex-wrap items-center justify-between gap-2 px-1">
+              <h3 class="hand text-2xl font-bold text-[#4a4036]">우리 반 작품 모음집 📚</h3>
+              <div class="flex gap-1.5">
+                <button type="button" data-filter="all" class="teacher-filter-btn rounded-full bg-[#7d967b] px-3.5 py-1.5 text-xs font-semibold text-white">전체 보기</button>
+                <button type="button" data-filter="submitted" class="teacher-filter-btn rounded-full bg-[#f4f1ea] px-3.5 py-1.5 text-xs font-semibold text-[#6d6054]">제출 완료</button>
+                <button type="button" data-filter="star" class="teacher-filter-btn rounded-full bg-[#f4f1ea] px-3.5 py-1.5 text-xs font-semibold text-[#6d6054]">⭐ 별 스티커</button>
+              </div>
+            </div>
+
+            <div id="teacher-entries-list" class="grid gap-5 md:grid-cols-2">
+              <!-- JS로 학생 작품 카드 렌더링 -->
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // --- 기본 상수 및 상태 정의 ---
+    const MOODS = [
+      { emoji: '☀️', label: '햇살 가득' },
+      { emoji: '🌷', label: '몽글몽글' },
+      { emoji: '🌈', label: '설렘 뿜뿜' },
+      { emoji: '🍀', label: '행운 가득' },
+      { emoji: '🌙', label: '차분한 밤' }
+    ];
+
+    const AVATARS = [
+      // 동물 캐릭터
+      '🐰', '🐻', '🦊', '🐶', '🐱', '🐣', '🐼', '🐨', '🐹', '🦁',
+      // 식물 캐릭터
+      '🌱', '🌷', '🌻', '🌸', '🍀', '🌵', '🌿', '🍁', '🌼', '🌳'
+    ];
+    const TEACHER_PASSCODE = 'teacher';
+    const TARGET_SENTENCES = 15;
+
+    let state = {
+      mode: 'welcome', // 'welcome' | 'student-select' | 'student-auth' | 'student-journal' | 'teacher-auth' | 'teacher-dashboard'
+      pendingStudentId: null,
+      selectedAvatarInAuth: '🐰',
+      selectedStudentId: null,
+      selectedMood: '☀️',
+      teacherFilter: 'all', // 'all' | 'submitted' | 'star'
+      editingStudentId: null,
+      topic: {
+        id: 'topic_default',
+        title: '',
+        guide: '',
+        updatedAt: null
+      },
+      students: []
+    };
+
+    // --- 문장 수 & 글자 수 계산 유틸리티 ---
+    function countSentences(text) {
+      if (!text || !text.trim()) return 0;
+      // 마침표(.), 느낌표(!), 물음표(?) 또는 줄바꿈 단위로 의미 있는 문장 분리
+      const segments = text
+        .split(/[.!?。\n]+/)
+        .map(s => s.trim())
+        .filter(s => s.length >= 2);
+      return segments.length;
+    }
+
+    function formatDateTime(ts) {
+      if (!ts) return '';
+      const d = new Date(ts);
+      const month = d.getMonth() + 1;
+      const day = d.getDate();
+      const hours = String(d.getHours()).padStart(2, '0');
+      const mins = String(d.getMinutes()).padStart(2, '0');
+      return `${month}월 ${day}일 ${hours}:${mins}`;
+    }
+
+    // --- DOM 요소 참조 ---
+    const els = {
+      homeBtn: document.getElementById('home-button'),
+      notice: document.getElementById('notice'),
+      noticeText: document.getElementById('notice-text'),
+      welcomeView: document.getElementById('welcome'),
+      studentSelectView: document.getElementById('student-select-view'),
+      selectViewTopicTitle: document.getElementById('select-view-topic-title'),
+      selectViewTopicDesc: document.getElementById('select-view-topic-desc'),
+      selectViewTopicDate: document.getElementById('select-view-topic-date'),
+      emptyStudentListMsg: document.getElementById('empty-student-list-msg'),
+      teacherAuthView: document.getElementById('teacher-auth-view'),
+      teacherAuthForm: document.getElementById('teacher-auth-form'),
+      teacherPasswordInput: document.getElementById('teacher-password-input'),
+      studentAuthView: document.getElementById('student-auth-view'),
+      authStudentAvatar: document.getElementById('auth-student-avatar'),
+      authStudentTitle: document.getElementById('auth-student-title'),
+      authStudentDesc: document.getElementById('auth-student-desc'),
+      authAvatarPickerBox: document.getElementById('auth-avatar-picker-box'),
+      authAvatarGrid: document.getElementById('auth-avatar-grid'),
+      studentAuthForm: document.getElementById('student-auth-form'),
+      studentPasswordInput: document.getElementById('student-password-input'),
+      studentAuthSubmitBtn: document.getElementById('student-auth-submit-btn'),
+      studentJournalView: document.getElementById('student-journal-view'),
+      newTopicMessageBanner: document.getElementById('new-topic-message-banner'),
+      bannerNewTopicTitle: document.getElementById('banner-new-topic-title'),
+      ackNewTopicBtn: document.getElementById('ack-new-topic-btn'),
+      teacherDashboardView: document.getElementById('teacher-dashboard-view'),
+      studentCardGrid: document.getElementById('student-card-grid'),
+      activeStudentAvatar: document.getElementById('active-student-avatar'),
+      activeStudentName: document.getElementById('active-student-name'),
+      submissionStatusMsg: document.getElementById('submission-status-msg'),
+      heartRewardCard: document.getElementById('heart-reward-card'),
+      heartBadgeIcon: document.getElementById('heart-badge-icon'),
+      heartBadgeTitle: document.getElementById('heart-badge-title'),
+      heartBadgeDesc: document.getElementById('heart-badge-desc'),
+      starRewardCard: document.getElementById('star-reward-card'),
+      starBadgeIcon: document.getElementById('star-badge-icon'),
+      starBadgeTitle: document.getElementById('star-badge-title'),
+      starBadgeDesc: document.getElementById('star-badge-desc'),
+      journalTopicUpdatedAt: document.getElementById('journal-topic-updated-at'),
+      journalTopicTitle: document.getElementById('journal-topic-title'),
+      journalTopicGuide: document.getElementById('journal-topic-guide'),
+      moodPicker: document.getElementById('mood-picker'),
+      writingTitleInput: document.getElementById('writing-title-input'),
+      writingTextarea: document.getElementById('writing-textarea'),
+      liveSentenceCounter: document.getElementById('live-sentence-counter'),
+      liveCharCounter: document.getElementById('live-char-counter'),
+      starProgressLabel: document.getElementById('star-progress-label'),
+      starProgressBar: document.getElementById('star-progress-bar'),
+      lastSubmittedTime: document.getElementById('last-submitted-time'),
+      submitWritingBtn: document.getElementById('submit-writing-btn'),
+      submitBtnLabel: document.getElementById('submit-btn-label'),
+      studentTeacherReplyBox: document.getElementById('student-teacher-reply-box'),
+      studentTeacherReplyText: document.getElementById('student-teacher-reply-text'),
+      statTotalStudents: document.getElementById('stat-total-students'),
+      statTotalSubmitted: document.getElementById('stat-total-submitted'),
+      statTotalStars: document.getElementById('stat-total-stars'),
+      teacherCurrentTopicBadge: document.getElementById('teacher-current-topic-badge'),
+      topicSettingForm: document.getElementById('topic-setting-form'),
+      teacherTopicTitleInput: document.getElementById('teacher-topic-title-input'),
+      teacherTopicGuideInput: document.getElementById('teacher-topic-guide-input'),
+      resetSubmissionsCheckbox: document.getElementById('reset-submissions-on-topic-change'),
+      teacherStudentRoster: document.getElementById('teacher-student-roster'),
+      teacherEntriesList: document.getElementById('teacher-entries-list'),
+      addStudentForm: document.getElementById('add-student-form'),
+      newStudentNameInput: document.getElementById('new-student-name')
+    };
+
+    // --- 실시간 클라우드 저장소 연동 (모든 기기/브라우저 동기화) ---
+    let db = null;
+    let currentUser = null;
+    let appId = 'default-app-id';
+    let firestoreApi = null;
+    let isTeacherTopicEditing = false;
+
+    async function initCloudSync() {
+      try {
+        const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js");
+        const { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } = await import("https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js");
+        const fs = await import("https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js");
+
+        appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = JSON.parse(__firebase_config);
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        db = fs.getFirestore(app);
+        firestoreApi = fs;
+
+        if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+          await signInWithCustomToken(auth, __initial_auth_token);
+        } else {
+          await signInAnonymously(auth);
+        }
+
+        onAuthStateChanged(auth, (user) => {
+          currentUser = user;
+          if (!user) return;
+          subscribeToClassTopic();
+          subscribeToClassStudents();
+        });
+      } catch (err) {
+        console.error('클라우드 동기화 초기화 오류:', err);
+        showNotice('실시간 동기화 연결 중 문제가 발생했어요. 새로고침해 주세요.');
+      }
+    }
+
+    function getTopicDocRef() {
+      return firestoreApi.doc(db, 'artifacts', appId, 'public', 'data', 'writing_settings', 'current_topic');
+    }
+
+    function getStudentsCollectionRef() {
+      return firestoreApi.collection(db, 'artifacts', appId, 'public', 'data', 'writing_students');
+    }
+
+    function getStudentDocRef(studentId) {
+      return firestoreApi.doc(db, 'artifacts', appId, 'public', 'data', 'writing_students', studentId);
+    }
+
+    // 주간 글쓰기 주제 실시간 구독
+    function subscribeToClassTopic() {
+      if (!currentUser || !db) return;
+
+      firestoreApi.onSnapshot(
+        getTopicDocRef(),
+        (docSnap) => {
+          if (docSnap.exists()) {
+            const data = docSnap.data();
+            const prevTopicId = state.topic.id;
+            state.topic = {
+              id: data.id || 'topic_default',
+              title: data.title || '',
+              guide: data.guide || '',
+              updatedAt: data.updatedAt || null
+            };
+
+            // 학생 화면에서 실시간으로 주제가 바뀌었을 때 알림 토스트 표시
+            if (prevTopicId !== state.topic.id && state.mode === 'student-journal' && state.topic.title) {
+              showNotice(`📮 선생님께서 새로운 글쓰기 주제("${state.topic.title}")를 보내셨어요!`);
+            }
+          }
+
+          // 현재 화면에 주제 반영
+          updateTopicDisplays();
+        },
+        (error) => {
+          console.error('주제 수신 오류:', error);
+        }
+      );
+    }
+
+    // 학급 전체 학생 데이터 실시간 구독
+    function subscribeToClassStudents() {
+      if (!currentUser || !db) return;
+
+      firestoreApi.onSnapshot(
+        getStudentsCollectionRef(),
+        (snapshot) => {
+          const list = [];
+          snapshot.forEach((docSnap) => {
+            const data = docSnap.data();
+            list.push({
+              id: docSnap.id,
+              name: data.name || '',
+              avatar: data.avatar || '🐣',
+              password: data.password || null,
+              createdAt: data.createdAt || 0,
+              seenTopicId: data.seenTopicId || null,
+              writing: data.writing || null // { title, text, mood, sentenceCount, submittedAt, reply }
+            });
+          });
+
+          list.sort((a, b) => a.createdAt - b.createdAt);
+          state.students = list;
+
+          if (state.mode === 'student-select') {
+            renderStudentSelectGrid();
+          } else if (state.mode === 'student-auth') {
+            const exists = state.students.some(s => s.id === state.pendingStudentId);
+            if (!exists) setMode('student-select');
+          } else if (state.mode === 'student-journal') {
+            const exists = state.students.some(s => s.id === state.selectedStudentId);
+            if (!exists) {
+              showNotice('명단 정보가 변경되어 선택 화면으로 이동합니다.');
+              setMode('student-select');
+            } else {
+              // 학생이 입력 중이 아닐 때만 폼 동기화, 배지/답장/주제는 항상 동기화
+              syncStudentJournalFromCloud();
+            }
+          } else if (state.mode === 'teacher-dashboard') {
+            renderTeacherDashboard();
+          }
+
+          if (window.lucide) window.lucide.createIcons();
+        },
+        (error) => {
+          console.error('실시간 데이터 수신 오류:', error);
+        }
+      );
+    }
+
+    // 개별 학생 문서 저장/업데이트
+    async function saveStudentRecord(student) {
+      if (!currentUser || !db) {
+        showNotice('서버와 연결 중입니다. 잠시 후 다시 시도해 주세요.');
+        return;
+      }
+      try {
+        await firestoreApi.setDoc(getStudentDocRef(student.id), {
+          name: student.name,
+          avatar: student.avatar,
+          password: student.password || null,
+          createdAt: student.createdAt || Date.now(),
+          seenTopicId: student.seenTopicId || null,
+          writing: student.writing || null
+        });
+      } catch (err) {
+        console.error('저장 오류:', err);
+        showNotice('저장 중 오류가 발생했어요. 다시 시도해 주세요.');
+      }
+    }
+
+    // 개별 학생 문서 삭제
+    async function deleteStudentRecord(studentId) {
+      if (!currentUser || !db) return;
+      try {
+        await firestoreApi.deleteDoc(getStudentDocRef(studentId));
+      } catch (err) {
+        console.error('삭제 오류:', err);
+        showNotice('삭제 중 오류가 발생했어요.');
+      }
+    }
+
+    // --- 화면 내 주제 표시 업데이트 ---
+    function updateTopicDisplays() {
+      const hasTopic = Boolean(state.topic.title && state.topic.title.trim());
+
+      // 학생 선택 화면 배너
+      els.selectViewTopicTitle.textContent = hasTopic ? state.topic.title : '아직 선생님이 이번 주 주제를 등록하지 않으셨어요 🌱';
+      els.selectViewTopicDesc.textContent = hasTopic
+        ? (state.topic.guide || '자신의 이름 카드를 눌러 이번 주 주제에 대한 글을 써 보아요.')
+        : '선생님께서 주제를 보내주시면 이곳에 바로 나타납니다!';
+      els.selectViewTopicDate.textContent = state.topic.updatedAt ? `업데이트: ${formatDateTime(state.topic.updatedAt)}` : '';
+
+      // 학생 글쓰기 화면 주제 박스
+      els.journalTopicTitle.textContent = hasTopic ? state.topic.title : '이번 주 글쓰기 주제를 기다리고 있어요 ✨';
+      els.journalTopicGuide.textContent = hasTopic
+        ? (state.topic.guide || '주제를 떠올리며 나의 생각과 경험을 진솔하게 적어 보아요.')
+        : '선생님께서 주제를 올리시면 알림과 함께 주제가 표시됩니다.';
+      els.journalTopicUpdatedAt.textContent = state.topic.updatedAt ? `${formatDateTime(state.topic.updatedAt)} 출제` : '';
+
+      // 학생 화면 새 주제 알림 배너 확인
+      if (state.mode === 'student-journal' && state.selectedStudentId && hasTopic) {
+        const student = state.students.find(s => s.id === state.selectedStudentId);
+        if (student && student.seenTopicId !== state.topic.id) {
+          els.bannerNewTopicTitle.textContent = `"${state.topic.title}"`;
+          els.newTopicMessageBanner.hidden = false;
+        } else {
+          els.newTopicMessageBanner.hidden = true;
+        }
+      } else {
+        els.newTopicMessageBanner.hidden = true;
+      }
+
+      // 교사 대시보드 주제 입력칸 (편집 중이 아닐 때만 채움 - 기본은 빈 값이라 placeholder가 보임)
+      els.teacherCurrentTopicBadge.textContent = state.topic.updatedAt ? `최근 설정: ${formatDateTime(state.topic.updatedAt)}` : '주제 미설정';
+      if (!isTeacherTopicEditing) {
+        els.teacherTopicTitleInput.value = state.topic.title || '';
+        els.teacherTopicGuideInput.value = state.topic.guide || '';
+      }
+    }
+
+    // --- 알림 메시지 유틸리티 ---
+    let noticeTimeout = null;
+    function showNotice(msg) {
+      els.noticeText.textContent = msg;
+      els.notice.hidden = false;
+      clearTimeout(noticeTimeout);
+      noticeTimeout = setTimeout(() => {
+        els.notice.hidden = true;
+      }, 4000);
+    }
+
+    function hideNotice() {
+      els.notice.hidden = true;
+    }
+
+    // --- 화면 전환 컨트롤러 ---
+    function setMode(newMode) {
+      state.mode = newMode;
+      hideNotice();
+
+      els.welcomeView.hidden = newMode !== 'welcome';
+      els.studentSelectView.hidden = newMode !== 'student-select';
+      els.teacherAuthView.hidden = newMode !== 'teacher-auth';
+      els.studentAuthView.hidden = newMode !== 'student-auth';
+      els.studentJournalView.hidden = newMode !== 'student-journal';
+      els.teacherDashboardView.hidden = newMode !== 'teacher-dashboard';
+      els.homeBtn.hidden = newMode === 'welcome';
+
+      updateTopicDisplays();
+
+      if (newMode === 'student-select') {
+        renderStudentSelectGrid();
+      } else if (newMode === 'teacher-auth') {
+        els.teacherPasswordInput.value = '';
+        setTimeout(() => els.teacherPasswordInput.focus(), 50);
+      } else if (newMode === 'student-auth') {
+        renderStudentAuthView();
+      } else if (newMode === 'student-journal') {
+        renderStudentJournal(true);
+      } else if (newMode === 'teacher-dashboard') {
+        isTeacherTopicEditing = false;
+        updateTopicDisplays();
+        renderTeacherDashboard();
+      }
+
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    }
+
+    // --- 1. 학생 선택 그리드 렌더링 ---
+    function renderStudentSelectGrid() {
+      els.studentCardGrid.innerHTML = '';
+
+      if (state.students.length === 0) {
+        els.emptyStudentListMsg.hidden = false;
+        return;
+      }
+      els.emptyStudentListMsg.hidden = true;
+
+      state.students.forEach(student => {
+        const writing = student.writing;
+        const isSubmitted = Boolean(writing && writing.text);
+        const sentenceCount = isSubmitted ? countSentences(writing.text) : 0;
+        const hasStar = isSubmitted && sentenceCount >= TARGET_SENTENCES;
+        const hasPassword = Boolean(student.password);
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'group flex flex-col items-center justify-between rounded-3xl border border-[#e8decb] bg-white p-4 text-center transition-all hover:-translate-y-1 hover:border-[#d98276] hover:shadow-md';
+        btn.innerHTML = `
+          <div class="mb-2 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#fcf8f2] text-3xl transition-transform group-hover:scale-110">
+            ${student.avatar}
+          </div>
+          <p class="font-bold text-[#4a4036] text-sm md:text-base">${student.name}</p>
+          <div class="mt-2 flex items-center gap-1 text-xs">
+            ${isSubmitted ? '<span title="제출 완료">❤️</span>' : '<span class="text-stone-300" title="미제출">🤍</span>'}
+            ${hasStar ? '<span class="star-twinkle" title="15문장 이상 별 스티커">⭐</span>' : ''}
+            <span class="rounded-full bg-[#f5efe6] px-2 py-0.5 text-[10px] text-[#817366]">
+              ${hasPassword ? '잠금' : '첫 입장'}
+            </span>
+          </div>
+        `;
+        btn.addEventListener('click', () => {
+          state.pendingStudentId = student.id;
+          setMode('student-auth');
+        });
+        els.studentCardGrid.appendChild(btn);
+      });
+    }
+
+    // --- 1-1. 학생 비밀번호 설정/확인 및 캐릭터 선택 화면 렌더링 ---
+    function renderAuthAvatarGrid() {
+      els.authAvatarGrid.innerHTML = '';
+      AVATARS.forEach(emoji => {
+        const isSelected = state.selectedAvatarInAuth === emoji;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = `flex h-10 w-full items-center justify-center rounded-xl text-xl transition-all ${
+          isSelected
+            ? 'bg-[#d98276] text-white scale-105 shadow-xs ring-2 ring-[#b7685b]'
+            : 'bg-white hover:bg-[#f9f4e9] border border-[#e8decb]'
+        }`;
+        btn.textContent = emoji;
+        btn.addEventListener('click', () => {
+          state.selectedAvatarInAuth = emoji;
+          els.authStudentAvatar.textContent = emoji;
+          renderAuthAvatarGrid();
+        });
+        els.authAvatarGrid.appendChild(btn);
+      });
+    }
+
+    function renderStudentAuthView() {
+      const student = state.students.find(s => s.id === state.pendingStudentId);
+      if (!student) return setMode('student-select');
+
+      state.selectedAvatarInAuth = student.avatar || '🐰';
+      els.authStudentAvatar.textContent = state.selectedAvatarInAuth;
+      els.studentPasswordInput.value = '';
+      els.authAvatarPickerBox.hidden = false;
+      renderAuthAvatarGrid();
+
+      if (!student.password) {
+        els.authStudentTitle.textContent = `${student.name} 작가님, 반가워요! 🌱`;
+        els.authStudentDesc.textContent = '원하는 동물·식물 캐릭터를 고르고, 나만의 글쓰기 책갈피 비밀번호를 정해 주세요.';
+        els.studentPasswordInput.placeholder = '새로 사용할 비밀번호 입력';
+        els.studentAuthSubmitBtn.textContent = '캐릭터·비밀번호 설정하고 입장하기';
+      } else {
+        els.authStudentTitle.textContent = `${student.name} 작가님의 책갈피 🔒`;
+        els.authStudentDesc.textContent = '비밀번호를 입력해 입장하세요. 캐릭터를 바꾸고 싶다면 위에서 다시 고를 수 있어요!';
+        els.studentPasswordInput.placeholder = '비밀번호 입력';
+        els.studentAuthSubmitBtn.textContent = '글쓰기 방 열기';
+      }
+
+      setTimeout(() => els.studentPasswordInput.focus(), 50);
+    }
+
+    // --- 2. 학생 글쓰기 화면 렌더링 ---
+    function renderStudentJournal(loadTextInputs = false) {
+      const student = state.students.find(s => s.id === state.selectedStudentId);
+      if (!student) return setMode('student-select');
+
+      els.activeStudentAvatar.textContent = student.avatar;
+      els.activeStudentName.textContent = `${student.name}의 글쓰기 노트`;
+
+      // 새 주제 알림 배너 표시 여부
+      if (student.seenTopicId !== state.topic.id) {
+        els.bannerNewTopicTitle.textContent = `"${state.topic.title}"`;
+        els.newTopicMessageBanner.hidden = false;
+      } else {
+        els.newTopicMessageBanner.hidden = true;
+      }
+
+      const writing = student.writing;
+      const isSubmitted = Boolean(writing && writing.text);
+
+      if (loadTextInputs) {
+        state.selectedMood = writing?.mood || '☀️';
+        els.writingTitleInput.value = writing?.title || '';
+        els.writingTextarea.value = writing?.text || '';
+      }
+
+      renderMoodPicker();
+      updateLiveWritingMetrics();
+      updateRewardCards(student);
+
+      // 선생님 답장 표시 여부
+      if (writing && writing.reply && writing.reply.trim() !== '') {
+        els.studentTeacherReplyBox.hidden = false;
+        els.studentTeacherReplyText.textContent = writing.reply;
+      } else {
+        els.studentTeacherReplyBox.hidden = true;
+      }
+    }
+
+    // 클라우드 실시간 업데이트 시 학생이 현재 타이핑 중이면 입력창은 덮어쓰지 않음
+    function syncStudentJournalFromCloud() {
+      const isTyping = document.activeElement === els.writingTextarea || document.activeElement === els.writingTitleInput;
+      renderStudentJournal(!isTyping);
+    }
+
+    // 제출 하트 및 15문장 별 스티커 보상 카드 UI 갱신
+    function updateRewardCards(student) {
+      const writing = student.writing;
+      const isSubmitted = Boolean(writing && writing.text);
+      const savedSentences = isSubmitted ? countSentences(writing.text) : 0;
+      const hasStar = isSubmitted && savedSentences >= TARGET_SENTENCES;
+
+      // 1. 제출 하트 카드
+      if (isSubmitted) {
+        els.heartRewardCard.className = 'flex items-center gap-3.5 rounded-2xl border border-[#f0c7bf] bg-[#fdf3f1] p-4 transition-all';
+        els.heartBadgeIcon.textContent = '❤️';
+        els.heartBadgeTitle.textContent = '글 제출 완료! (하트 채움)';
+        els.heartBadgeDesc.textContent = '글을 고쳐서 다시 제출할 수도 있어요.';
+        els.submitBtnLabel.textContent = '수정 내용 다시 제출하기';
+        els.lastSubmittedTime.textContent = writing.submittedAt ? `마지막 제출: ${formatDateTime(writing.submittedAt)}` : '';
+        els.submissionStatusMsg.textContent = hasStar
+          ? '하트와 별 스티커를 모두 모은 멋진 작가님이에요! 💖⭐'
+          : '글을 제출해 하트가 채워졌어요! 15문장을 채워 별 스티커에도 도전해 봐요.';
+      } else {
+        els.heartRewardCard.className = 'flex items-center gap-3.5 rounded-2xl border border-[#efe4d6] bg-[#faf5ec] p-4 transition-all';
+        els.heartBadgeIcon.textContent = '🤍';
+        els.heartBadgeTitle.textContent = '아직 제출 전이에요';
+        els.heartBadgeDesc.textContent = '글을 쓰고 제출하면 하트가 빨갛게 물들어요!';
+        els.submitBtnLabel.textContent = '글 제출하기';
+        els.lastSubmittedTime.textContent = '';
+        els.submissionStatusMsg.textContent = '이번 주 주제를 보고 자유롭게 이야기를 들려주세요.';
+      }
+
+      // 2. 별 스티커 카드 (제출된 글 기준 15문장 이상일 때)
+      if (hasStar) {
+        els.starRewardCard.className = 'flex items-center gap-3.5 rounded-2xl border border-[#f2dc9b] bg-[#fef9eb] p-4 transition-all';
+        els.starBadgeIcon.innerHTML = '<span class="star-twinkle inline-block">⭐</span>';
+        els.starBadgeTitle.textContent = `반짝이는 별 스티커 획득! (${savedSentences}문장)`;
+        els.starBadgeDesc.textContent = '15문장 이상 정성스럽게 글을 완성했어요!';
+      } else {
+        els.starRewardCard.className = 'flex items-center gap-3.5 rounded-2xl border border-[#efe4d6] bg-[#faf5ec] p-4 transition-all';
+        els.starBadgeIcon.textContent = '☆';
+        els.starBadgeTitle.textContent = isSubmitted ? `제출된 글: ${savedSentences}문장` : '15문장 도전하기';
+        els.starBadgeDesc.textContent = '15문장 이상 쓰고 제출하면 별 스티커가 반짝여요!';
+      }
+    }
+
+    // 실시간 문장 수 & 글자 수 게이지 업데이트
+    function updateLiveWritingMetrics() {
+      const text = els.writingTextarea.value;
+      const sentences = countSentences(text);
+      const chars = text.replace(/\s/g, '').length;
+      const pct = Math.min(100, Math.round((sentences / TARGET_SENTENCES) * 100));
+
+      els.liveSentenceCounter.textContent = `${sentences}문장 / ${TARGET_SENTENCES}문장 목표`;
+      if (sentences >= TARGET_SENTENCES) {
+        els.liveSentenceCounter.className = 'rounded-full bg-[#fef3c7] px-3 py-1 font-bold text-[#b45309]';
+      } else {
+        els.liveSentenceCounter.className = 'rounded-full bg-[#f4efe6] px-3 py-1 font-bold text-[#7d6f62]';
+      }
+
+      els.liveCharCounter.textContent = `${chars}자`;
+      els.starProgressLabel.textContent = `${pct}% (${sentences}/${TARGET_SENTENCES}문장)`;
+      els.starProgressBar.style.width = `${pct}%`;
+    }
+
+    // 기분 스티커 선택 버튼 렌더링
+    function renderMoodPicker() {
+      els.moodPicker.innerHTML = '';
+      MOODS.forEach(mood => {
+        const active = state.selectedMood === mood.emoji;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = `inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-all ${
+          active
+            ? 'border-[#d98276] bg-[#d98276] text-white shadow-xs'
+            : 'border-[#e8decb] bg-white text-[#6e6053] hover:bg-[#fcf8f2]'
+        }`;
+        btn.textContent = `${mood.emoji} ${mood.label}`;
+        btn.addEventListener('click', () => {
+          state.selectedMood = mood.emoji;
+          renderMoodPicker();
+        });
+        els.moodPicker.appendChild(btn);
+      });
+    }
+
+    // --- 3. 선생님 대시보드 렌더링 ---
+    function renderTeacherDashboard() {
+      const totalStudents = state.students.length;
+      let submittedCount = 0;
+      let starCount = 0;
+
+      state.students.forEach(st => {
+        if (st.writing && st.writing.text) {
+          submittedCount++;
+          if (countSentences(st.writing.text) >= TARGET_SENTENCES) {
+            starCount++;
+          }
+        }
+      });
+
+      els.statTotalStudents.textContent = `${totalStudents}명`;
+      els.statTotalSubmitted.textContent = `${submittedCount}명`;
+      els.statTotalStars.textContent = `${starCount}명`;
+
+      // 학생 명단 및 비밀번호 확인 카드 렌더링 (이름 수정 및 삭제 지원)
+      els.teacherStudentRoster.innerHTML = '';
+      if (state.students.length === 0) {
+        els.teacherStudentRoster.innerHTML = `
+          <div class="col-span-full rounded-2xl border border-dashed border-[#e2d4c0] bg-[#fcf8f2] p-6 text-center text-sm text-[#7d6f62]">
+            위 입력창에서 학생 이름을 입력해 명단을 추가해 주세요! ✨
+          </div>
+        `;
+      } else {
+        state.students.forEach(student => {
+          const isEditingName = state.editingStudentId === student.id;
+          const item = document.createElement('div');
+          item.className = 'flex items-center justify-between gap-2 rounded-2xl border border-[#e8decb] bg-white px-4 py-3';
+          
+          if (isEditingName) {
+            item.innerHTML = `
+              <div class="flex w-full items-center gap-2">
+                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#f9f4e9] text-lg">${student.avatar}</span>
+                <input type="text" maxlength="10" value="${student.name}" class="edit-name-input w-full rounded-full border border-[#7d967b] bg-[#fcf8f2] px-3 py-1 text-sm font-bold text-[#4a4036]" data-id="${student.id}">
+                <button type="button" class="save-name-btn shrink-0 rounded-full bg-[#7d967b] px-2.5 py-1 text-xs font-bold text-white" data-id="${student.id}">저장</button>
+                <button type="button" class="cancel-name-btn shrink-0 rounded-full bg-stone-100 px-2 py-1 text-xs text-stone-500">취소</button>
+              </div>
+            `;
+          } else {
+            item.innerHTML = `
+              <div class="flex items-center gap-2.5 min-w-0">
+                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#f9f4e9] text-lg">${student.avatar}</span>
+                <div class="min-w-0">
+                  <p class="truncate font-bold text-[#4a4036] text-sm">${student.name}</p>
+                  <p class="truncate text-xs ${student.password ? 'text-[#46614a] font-semibold' : 'text-stone-400'}">
+                    ${student.password ? `비번: <span class="rounded bg-[#ecf0e6] px-1.5 py-0.5 font-mono text-[#354b38]">${student.password}</span>` : '비밀번호 미설정'}
+                  </p>
+                </div>
+              </div>
+              <div class="flex shrink-0 items-center gap-1">
+                <button type="button" class="edit-student-btn rounded-full p-1.5 text-stone-400 hover:bg-[#f4efe6] hover:text-[#4a4036]" data-id="${student.id}" title="이름 수정">
+                  <i data-lucide="pencil" class="h-3.5 w-3.5"></i>
+                </button>
+                ${student.password ? `
+                  <button type="button" class="reset-pw-btn rounded-full px-2 py-1 text-[11px] font-semibold text-[#9b8172] hover:bg-[#f9f4e9]" data-id="${student.id}" title="비밀번호 초기화">
+                    비번초기화
+                  </button>
+                ` : ''}
+                <button type="button" class="remove-student-btn rounded-full p-1.5 text-stone-400 hover:bg-rose-50 hover:text-rose-500" data-id="${student.id}" title="명단에서 삭제">
+                  <i data-lucide="trash-2" class="h-3.5 w-3.5"></i>
+                </button>
+              </div>
+            `;
+          }
+          els.teacherStudentRoster.appendChild(item);
+        });
+
+        // 이름 수정 모드 진입
+        document.querySelectorAll('.edit-student-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            state.editingStudentId = e.currentTarget.getAttribute('data-id');
+            renderTeacherDashboard();
+            if (window.lucide) window.lucide.createIcons();
+            const input = document.querySelector(`.edit-name-input[data-id="${state.editingStudentId}"]`);
+            if (input) { input.focus(); input.select(); }
+          });
+        });
+
+        // 이름 수정 저장
+        document.querySelectorAll('.save-name-btn').forEach(btn => {
+          btn.addEventListener('click', async (e) => {
+            const id = e.currentTarget.getAttribute('data-id');
+            const input = document.querySelector(`.edit-name-input[data-id="${id}"]`);
+            const newName = input ? input.value.trim() : '';
+            const st = state.students.find(s => s.id === id);
+            if (st && newName) {
+              st.name = newName;
+              state.editingStudentId = null;
+              await saveStudentRecord(st);
+              showNotice(`학생 이름을 '${newName}'(으)로 수정했어요.`);
+            }
+          });
+        });
+
+        // 이름 수정 취소
+        document.querySelectorAll('.cancel-name-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            state.editingStudentId = null;
+            renderTeacherDashboard();
+            if (window.lucide) window.lucide.createIcons();
+          });
+        });
+
+        document.querySelectorAll('.reset-pw-btn').forEach(btn => {
+          btn.addEventListener('click', async (e) => {
+            const id = e.currentTarget.getAttribute('data-id');
+            const st = state.students.find(s => s.id === id);
+            if (st) {
+              st.password = null;
+              await saveStudentRecord(st);
+              showNotice(`${st.name} 학생의 비밀번호를 초기화했어요.`);
+            }
+          });
+        });
+
+        document.querySelectorAll('.remove-student-btn').forEach(btn => {
+          btn.addEventListener('click', async (e) => {
+            const id = e.currentTarget.getAttribute('data-id');
+            const st = state.students.find(s => s.id === id);
+            if (st) {
+              await deleteStudentRecord(id);
+              showNotice(`${st.name} 학생을 명단에서 삭제했어요.`);
+            }
+          });
+        });
+      }
+
+      // 필터 버튼 스타일 업데이트
+      document.querySelectorAll('.teacher-filter-btn').forEach(btn => {
+        const f = btn.getAttribute('data-filter');
+        if (f === state.teacherFilter) {
+          btn.className = 'teacher-filter-btn rounded-full bg-[#7d967b] px-3.5 py-1.5 text-xs font-semibold text-white';
+        } else {
+          btn.className = 'teacher-filter-btn rounded-full bg-[#f4f1ea] px-3.5 py-1.5 text-xs font-semibold text-[#6d6054] hover:bg-[#e8e2d5]';
+        }
+      });
+
+      // 학생별 제출 작품 목록 렌더링
+      els.teacherEntriesList.innerHTML = '';
+      let displayedCards = 0;
+
+      state.students.forEach(student => {
+        const writing = student.writing;
+        const isSubmitted = Boolean(writing && writing.text);
+        if (!isSubmitted) return;
+
+        const sentences = countSentences(writing.text);
+        const hasStar = sentences >= TARGET_SENTENCES;
+
+        if (state.teacherFilter === 'star' && !hasStar) return;
+
+        displayedCards++;
+        const hasReply = writing.reply && writing.reply.trim() !== '';
+
+        const card = document.createElement('article');
+        card.className = 'paper flex flex-col justify-between rounded-[28px] p-6';
+        card.innerHTML = `
+          <div>
+            <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+              <div class="flex items-center gap-2.5">
+                <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#f9f4e9] text-2xl">${student.avatar}</span>
+                <div>
+                  <div class="flex items-center gap-1.5">
+                    <h3 class="hand text-xl font-bold text-[#4a4036]">${student.name}</h3>
+                    <span class="text-sm" title="제출 완료">❤️</span>
+                    ${hasStar ? `<span class="star-twinkle text-base" title="15문장 이상 별 스티커">⭐</span>` : ''}
+                  </div>
+                  <span class="text-xs text-[#9b8172]">${writing.mood || '☀️'} · ${sentences}문장 · ${formatDateTime(writing.submittedAt)}</span>
+                </div>
+              </div>
+              <span class="rounded-full px-3 py-1 text-xs font-semibold ${
+                hasReply ? 'bg-[#ecf0e6] text-[#46614a]' : 'bg-[#fdf3f1] text-[#d98276]'
+              }">
+                ${hasReply ? '💌 답장 완료' : '✍️ 답장 기다림'}
+              </span>
+            </div>
+
+            <div class="mb-4 rounded-2xl border border-[#efe6d8] bg-[#fcf9f3] p-4">
+              <h4 class="serif mb-2 text-base font-bold text-[#4a4036]">「${writing.title || '제목 없음'}」</h4>
+              <p class="serif whitespace-pre-wrap text-sm leading-relaxed text-[#574b40]">${writing.text}</p>
+            </div>
+          </div>
+
+          <div class="mt-2 border-t border-[#f0e8dc] pt-3">
+            <label class="mb-1.5 block text-xs font-semibold text-[#46614a]">선생님 감상평 & 답장 남기기</label>
+            <div class="flex gap-2">
+              <input type="text" value="${writing.reply ? writing.reply.replace(/"/g, '&quot;') : ''}" 
+                placeholder="학생에게 전해질 따뜻한 칭찬을 적어 주세요..." 
+                class="reply-input w-full rounded-full border border-[#dce4d7] bg-white px-4 py-2 text-xs text-[#3f5242] focus:border-[#7d967b] sm:text-sm"
+                data-student-id="${student.id}">
+              <button type="button" class="save-reply-btn shrink-0 rounded-full bg-[#7d967b] px-4 py-2 text-xs font-bold text-white transition hover:brightness-95"
+                data-student-id="${student.id}">
+                전송
+              </button>
+            </div>
+          </div>
+        `;
+        els.teacherEntriesList.appendChild(card);
+      });
+
+      if (displayedCards === 0) {
+        els.teacherEntriesList.innerHTML = `
+          <div class="paper col-span-full rounded-3xl p-10 text-center text-sm text-[#7d6f62]">
+            아직 조건에 해당하는 제출 글이 없어요 🌱
+          </div>
+        `;
+      }
+
+      // 답장 저장 버튼 이벤트
+      document.querySelectorAll('.save-reply-btn').forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+          const studentId = e.currentTarget.getAttribute('data-student-id');
+          const input = document.querySelector(`.reply-input[data-student-id="${studentId}"]`);
+          const student = state.students.find(s => s.id === studentId);
+          if (student && student.writing && input) {
+            student.writing.reply = input.value.trim();
+            await saveStudentRecord(student);
+            showNotice(`${student.name} 학생의 글에 따뜻한 답장을 남겼어요! 💌`);
+          }
+        });
+      });
+    }
+
+    // --- 이벤트 리스너 등록 ---
+    document.getElementById('student-mode-btn').addEventListener('click', () => setMode('student-select'));
+    document.getElementById('teacher-mode-btn').addEventListener('click', () => setMode('teacher-auth'));
+    els.homeBtn.addEventListener('click', () => setMode('welcome'));
+    document.getElementById('change-student-btn').addEventListener('click', () => setMode('student-select'));
+
+    // 실시간 문장/글자 수 계산 이벤트
+    els.writingTextarea.addEventListener('input', updateLiveWritingMetrics);
+
+    // 새 주제 알림 배너 '확인했어요' 버튼
+    els.ackNewTopicBtn.addEventListener('click', async () => {
+      const student = state.students.find(s => s.id === state.selectedStudentId);
+      if (!student) return;
+      student.seenTopicId = state.topic.id;
+      els.newTopicMessageBanner.hidden = true;
+      await saveStudentRecord(student);
+    });
+
+    // 교사 입장 비밀번호 제출
+    els.teacherAuthForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const entered = els.teacherPasswordInput.value.trim();
+      if (entered === TEACHER_PASSCODE) {
+        setMode('teacher-dashboard');
+        showNotice('선생님, 환영합니다! 우리 반 글쓰기 교실이 열렸어요 🌿');
+      } else {
+        showNotice('입장 번호가 올바르지 않아요. 다시 확인해 주세요! 🔐');
+        els.teacherPasswordInput.value = '';
+        els.teacherPasswordInput.focus();
+      }
+    });
+
+    // 학생 비밀번호 설정 및 확인 제출 (선택한 동물/식물 캐릭터도 함께 저장)
+    els.studentAuthForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const student = state.students.find(s => s.id === state.pendingStudentId);
+      if (!student) return setMode('student-select');
+
+      const enteredPw = els.studentPasswordInput.value.trim();
+      if (!enteredPw) return;
+
+      if (!student.password) {
+        student.password = enteredPw;
+        student.avatar = state.selectedAvatarInAuth;
+        await saveStudentRecord(student);
+        state.selectedStudentId = student.id;
+        setMode('student-journal');
+        showNotice(`캐릭터와 비밀번호가 설정되었어요! 이제 멋진 글을 써 볼까요? ✨`);
+      } else {
+        if (enteredPw === student.password) {
+          if (student.avatar !== state.selectedAvatarInAuth) {
+            student.avatar = state.selectedAvatarInAuth;
+            await saveStudentRecord(student);
+          }
+          state.selectedStudentId = student.id;
+          setMode('student-journal');
+        } else {
+          showNotice('비밀번호가 틀렸어요! 잊어버렸다면 선생님께 여쭤보세요 🔑');
+          els.studentPasswordInput.value = '';
+          els.studentPasswordInput.focus();
+        }
+      }
+    });
+
+    // 학생 글 작성/수정 제출
+    els.submitWritingBtn.addEventListener('click', async () => {
+      const title = els.writingTitleInput.value.trim() || '제목 없는 이야기';
+      const text = els.writingTextarea.value.trim();
+
+      if (!text) {
+        showNotice('글 내용을 먼저 작성해 주세요! ✍️');
+        els.writingTextarea.focus();
+        return;
+      }
+
+      const student = state.students.find(s => s.id === state.selectedStudentId);
+      if (!student) return;
+
+      const sentenceCount = countSentences(text);
+      const existingReply = student.writing?.reply || '';
+
+      student.seenTopicId = state.topic.id;
+      student.writing = {
+        topicId: state.topic.id,
+        title,
+        text,
+        mood: state.selectedMood,
+        sentenceCount,
+        submittedAt: Date.now(),
+        reply: existingReply
+      };
+
+      await saveStudentRecord(student);
+
+      // 하트 팝 애니메이션 트리거
+      els.heartBadgeIcon.classList.remove('heart-pop');
+      void els.heartBadgeIcon.offsetWidth;
+      els.heartBadgeIcon.classList.add('heart-pop');
+
+      if (sentenceCount >= TARGET_SENTENCES) {
+        showNotice(`글을 제출해 하트가 채워지고, ${sentenceCount}문장 달성으로 별 스티커가 켜졌어요! ❤️⭐`);
+      } else {
+        showNotice(`글이 멋지게 제출되어 하트가 채워졌어요! ❤️ (${sentenceCount}문장 작성)`);
+      }
+    });
+
+    // 교사 주제 설정 입력 감지 (실시간 동기화 덮어쓰기 방지)
+    els.teacherTopicTitleInput.addEventListener('focus', () => { isTeacherTopicEditing = true; });
+    els.teacherTopicGuideInput.addEventListener('focus', () => { isTeacherTopicEditing = true; });
+
+    // 교사 새 주제 저장 및 학생 알림 발송
+    els.topicSettingForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const newTitle = els.teacherTopicTitleInput.value.trim();
+      const newGuide = els.teacherTopicGuideInput.value.trim();
+      if (!newTitle) return;
+
+      if (!currentUser || !db) {
+        showNotice('서버와 연결 중입니다. 잠시 후 다시 시도해 주세요.');
+        return;
+      }
+
+      const newTopicData = {
+        id: 'topic_' + Date.now(),
+        title: newTitle,
+        guide: newGuide,
+        updatedAt: Date.now()
+      };
+
+      try {
+        await firestoreApi.setDoc(getTopicDocRef(), newTopicData);
+        isTeacherTopicEditing = false;
+
+        // 옵션 체크 시 학생들의 기존 제출 글/하트/별 초기화
+        if (els.resetSubmissionsCheckbox.checked) {
+          for (const st of state.students) {
+            st.writing = null;
+            await saveStudentRecord(st);
+          }
+          els.resetSubmissionsCheckbox.checked = false;
+        }
+
+        showNotice('새로운 글쓰기 주제가 저장되어 모든 학생들에게 메시지 알림이 전송되었어요! 📮✨');
+      } catch (err) {
+        console.error('주제 저장 오류:', err);
+        showNotice('주제 저장 중 오류가 발생했어요.');
+      }
+    });
+
+    // 선생님 모드: 새 학생 추가
+    els.addStudentForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = els.newStudentNameInput.value.trim();
+      if (!name) return;
+
+      const randomAvatar = AVATARS[state.students.length % AVATARS.length];
+      const newStudent = {
+        id: 's_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6),
+        name,
+        avatar: randomAvatar,
+        password: null,
+        createdAt: Date.now(),
+        seenTopicId: null,
+        writing: null
+      };
+
+      els.newStudentNameInput.value = '';
+      await saveStudentRecord(newStudent);
+      showNotice(`${name} 학생이 우리 반 작가 명단에 추가되었어요! 🎉`);
+    });
+
+    // 교사 작품 모음집 필터 버튼
+    document.querySelectorAll('.teacher-filter-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        state.teacherFilter = e.currentTarget.getAttribute('data-filter');
+        renderTeacherDashboard();
+      });
+    });
+
+    // 초기 아이콘 렌더링 및 클라우드 실시간 동기화 시작
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+      initCloudSync();
+    });
+  </script>
+</body>
+</html>
