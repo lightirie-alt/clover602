@@ -633,15 +633,15 @@
         const { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } = await import("https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js");
         const fs = await import("https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js");
 
-appId = 'clover602';
-const firebaseConfig = {
-  apiKey: "AIzaSyA70jsaYeBJd8zNs-t_3ECnmPWxZTdv2G8",
-  authDomain: "clover-writing.firebaseapp.com",
-  projectId: "clover-writing",
-  storageBucket: "clover-writing.firebasestorage.app",
-  messagingSenderId: "933477641215",
-  appId: "1:933477641215:web:9c39fcdb07ba418c8415ca"
-};
+        appId = 'clover602';
+        const firebaseConfig = {
+           apiKey: "AIzaSyA70jsaYeBJd8zNs-t_3ECnmPWxZTdv2G8",
+           authDomain: "clover-writing.firebaseapp.com",
+           projectId: "clover-writing",
+           storageBucket: "clover-writing.firebasestorage.app",
+           messagingSenderId: "933477641215",
+           appId: "1:933477641215:web:9c39fcdb07ba418c8415ca"
+        };
 
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
